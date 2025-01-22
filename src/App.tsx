@@ -20,48 +20,65 @@ import { App as AntdApp, ConfigProvider } from "antd";
 
 import { appwriteClient, authProvider } from "./utility";
 
-import { PostCreate, PostEdit, PostList, PostShow } from "./pages/posts";
+// import { PostCreate, PostEdit, PostList, PostShow } from "./pages/posts";
+
+// import {
+//   CategoryCreate,
+//   CategoryList,
+//   CategoryShow,
+//   CategoryEdit,
+// } from "./pages/categories";
+
 import {
-  CategoryCreate,
-  CategoryList,
-  CategoryShow,
-  CategoryEdit,
-} from "./pages/categories";
+  ParticipantCreate,
+  ParticipantList,
+  ParticipantShow,
+  ParticipantEdit,
+} from "./pages/participants";
 
 const App: React.FC = () => {
   return (
     <BrowserRouter>
-      <GitHubBanner />
       <ConfigProvider theme={RefineThemes.Blue}>
         <AntdApp>
           <Refine
             dataProvider={dataProvider(appwriteClient, {
-              databaseId: "default",
+              databaseId: "678f8374002347bdd52f",
             })}
             liveProvider={liveProvider(appwriteClient, {
-              databaseId: "default",
+              databaseId: "678f8374002347bdd52f",
             })}
             authProvider={authProvider}
             routerProvider={routerProvider}
             resources={[
+              // {
+              //   name: "blog_posts",
+              //   list: "/posts",
+              //   create: "/posts/create",
+              //   edit: "/posts/edit/:id",
+              //   show: "/posts/show/:id",
+              //   meta: {
+              //     label: "Blog Posts",
+              //   },
+              // },
+              // {
+              //   name: "categories",
+              //   list: "/categories",
+              //   create: "/categories/create",
+              //   show: "/categories/show/:id",
+              //   edit: "/categories/edit/:id",
+              //   meta: {
+              //     label: "Categories",
+              //   },
+              // },
               {
-                name: "blog_posts",
-                list: "/posts",
-                create: "/posts/create",
-                edit: "/posts/edit/:id",
-                show: "/posts/show/:id",
+                name: "678f837f00108cba6778",
+                list: "/participants",
+                create: "/participants/create",
+                show: "/participants/show/:id",
+                edit: "/participants/edit/:id",
                 meta: {
-                  label: "Blog Posts",
-                },
-              },
-              {
-                name: "categories",
-                list: "/categories",
-                create: "/categories/create",
-                show: "/categories/show/:id",
-                edit: "/categories/edit/:id",
-                meta: {
-                  label: "Categories",
+                  label: "Participants",
                 },
               },
             ]}
@@ -87,10 +104,10 @@ const App: React.FC = () => {
               >
                 <Route
                   index
-                  element={<NavigateToResource resource="blog_posts" />}
+                  element={<NavigateToResource resource="678f837f00108cba6778" />}
                 />
 
-                <Route path="/posts">
+                {/* <Route path="/posts">
                   <Route index element={<PostList />} />
                   <Route path="create" element={<PostCreate />} />
                   <Route path="edit/:id" element={<PostEdit />} />
@@ -101,13 +118,19 @@ const App: React.FC = () => {
                   <Route path="create" element={<CategoryCreate />} />
                   <Route path="edit/:id" element={<CategoryEdit />} />
                   <Route path="show/:id" element={<CategoryShow />} />
+                </Route> */}
+                <Route path="/participants">
+                  <Route index element={<ParticipantList />} />
+                  <Route path="create" element={<ParticipantCreate />} />
+                  <Route path="edit/:id" element={<ParticipantEdit />} />
+                  <Route path="show/:id" element={<ParticipantShow />} />
                 </Route>
               </Route>
 
               <Route
                 element={
                   <Authenticated key="auth-pages" fallback={<Outlet />}>
-                    <NavigateToResource resource="blog_posts" />
+                    <NavigateToResource resource="678f837f00108cba6778" />
                   </Authenticated>
                 }
               >

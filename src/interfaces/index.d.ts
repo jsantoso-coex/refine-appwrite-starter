@@ -1,3 +1,8 @@
+export interface IParticipant {
+  name: string;
+  business_number: string;
+}
+
 export interface ICategory {
   id: string;
   title: string;
