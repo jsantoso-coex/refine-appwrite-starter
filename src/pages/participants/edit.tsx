@@ -15,11 +15,22 @@ export const ParticipantEdit = () => {
     <Edit saveButtonProps={saveButtonProps}>
       <Form {...formProps} layout="vertical">
         <Form.Item
-          label="Title"
-          name="title"
+          label="Name"
+          name="name"
           rules={[
             {
               required: true,
+            },
+          ]}
+        >
+          <Input />
+        </Form.Item>
+        <Form.Item
+          label="Business Number"
+          name="business_number"
+          rules={[
+            {
+              required: false,
             },
           ]}
         >

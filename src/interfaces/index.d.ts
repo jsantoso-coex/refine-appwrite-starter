@@ -1,4 +1,13 @@
+export interface IContact {
+  first_name: string;
+  last_name: string;
+  email: string;
+  title: string;
+  phone_number: string;
+}
+
 export interface IParticipant {
+  id: int,
   name: string;
   business_number: string;
 }

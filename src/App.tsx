@@ -6,7 +6,7 @@ import {
   useNotificationProvider,
 } from "@refinedev/antd";
 import { dataProvider, liveProvider } from "@refinedev/appwrite";
-import { Authenticated, GitHubBanner, Refine } from "@refinedev/core";
+import { Authenticated, Refine } from "@refinedev/core";
 import routerProvider, {
   CatchAllNavigate,
   DocumentTitleHandler,
@@ -35,6 +35,13 @@ import {
   ParticipantShow,
   ParticipantEdit,
 } from "./pages/participants";
+
+import {
+  ContactCreate,
+  ContactList,
+  ContactShow,
+  ContactEdit,
+} from "./pages/contacts";
 
 const App: React.FC = () => {
   return (
@@ -81,6 +88,22 @@ const App: React.FC = () => {
                   label: "Participants",
                 },
               },
+              {
+                name: "679030d2003cbaa1e753",
+                list: "/contacts",
+                create: "/contacts/create",
+                show: "/contacts/show/:id",
+                edit: "/contacts/edit/:id",
+                meta: {
+                  label: "Contacts",
+                  // default: {
+                  //   fields: ["first_name", "last_name"],
+                  // },
+                  // getList: {
+                  //   fields: ["first_name", "last_name", "title", "email", "mobile_number"],
+                  // },
+                },
+              },
             ]}
             notificationProvider={useNotificationProvider}
             options={{
@@ -124,6 +147,13 @@ const App: React.FC = () => {
                   <Route path="create" element={<ParticipantCreate />} />
                   <Route path="edit/:id" element={<ParticipantEdit />} />
                   <Route path="show/:id" element={<ParticipantShow />} />
+                </Route>
+
+                <Route path="/contacts">
+                  <Route index element={<ContactList />} />
+                  <Route path="create" element={<ContactCreate />} />
+                  <Route path="edit/:id" element={<ContactEdit />} />
+                  <Route path="show/:id" element={<ContactShow />} />
                 </Route>
               </Route>
 
