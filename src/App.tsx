@@ -14,28 +14,15 @@ import routerProvider, {
   UnsavedChangesNotifier,
 } from "@refinedev/react-router";
 import { BrowserRouter, Outlet, Route, Routes } from "react-router";
-
 import "@refinedev/antd/dist/reset.css";
 import { App as AntdApp, ConfigProvider } from "antd";
-
 import { appwriteClient, authProvider } from "./utility";
-
-// import { PostCreate, PostEdit, PostList, PostShow } from "./pages/posts";
-
-// import {
-//   CategoryCreate,
-//   CategoryList,
-//   CategoryShow,
-//   CategoryEdit,
-// } from "./pages/categories";
-
 import {
   ParticipantCreate,
   ParticipantList,
   ParticipantShow,
   ParticipantEdit,
 } from "./pages/participants";
-
 import {
   ContactCreate,
   ContactList,
@@ -58,26 +45,6 @@ const App: React.FC = () => {
             authProvider={authProvider}
             routerProvider={routerProvider}
             resources={[
-              // {
-              //   name: "blog_posts",
-              //   list: "/posts",
-              //   create: "/posts/create",
-              //   edit: "/posts/edit/:id",
-              //   show: "/posts/show/:id",
-              //   meta: {
-              //     label: "Blog Posts",
-              //   },
-              // },
-              // {
-              //   name: "categories",
-              //   list: "/categories",
-              //   create: "/categories/create",
-              //   show: "/categories/show/:id",
-              //   edit: "/categories/edit/:id",
-              //   meta: {
-              //     label: "Categories",
-              //   },
-              // },
               {
                 name: "678f837f00108cba6778",
                 list: "/participants",
@@ -96,12 +63,6 @@ const App: React.FC = () => {
                 edit: "/contacts/edit/:id",
                 meta: {
                   label: "Contacts",
-                  // default: {
-                  //   fields: ["first_name", "last_name"],
-                  // },
-                  // getList: {
-                  //   fields: ["first_name", "last_name", "title", "email", "mobile_number"],
-                  // },
                 },
               },
             ]}
@@ -130,18 +91,6 @@ const App: React.FC = () => {
                   element={<NavigateToResource resource="678f837f00108cba6778" />}
                 />
 
-                {/* <Route path="/posts">
-                  <Route index element={<PostList />} />
-                  <Route path="create" element={<PostCreate />} />
-                  <Route path="edit/:id" element={<PostEdit />} />
-                  <Route path="show/:id" element={<PostShow />} />
-                </Route>
-                <Route path="/categories">
-                  <Route index element={<CategoryList />} />
-                  <Route path="create" element={<CategoryCreate />} />
-                  <Route path="edit/:id" element={<CategoryEdit />} />
-                  <Route path="show/:id" element={<CategoryShow />} />
-                </Route> */}
                 <Route path="/participants">
                   <Route index element={<ParticipantList />} />
                   <Route path="create" element={<ParticipantCreate />} />

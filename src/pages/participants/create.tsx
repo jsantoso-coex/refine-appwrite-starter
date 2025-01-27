@@ -1,6 +1,5 @@
 import { Create, useForm } from "@refinedev/antd";
 import { Form, Input } from "antd";
-
 import type { HttpError } from "@refinedev/core";
 import type { IParticipant } from "../../interfaces";
 

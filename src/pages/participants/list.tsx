@@ -1,6 +1,5 @@
 import { List, useTable, getDefaultSortOrder, EditButton, ShowButton, DeleteButton } from "@refinedev/antd";
 import { Space, Table } from "antd";
-
 import type { IParticipant } from "../../interfaces";
 
 export const ParticipantList = () => {
